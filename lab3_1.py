@@ -19,8 +19,7 @@ def insert(arr: ArrayList, n: int) -> ArrayList:
     arr2 = ArrayList(arr.size, arr.array.copy(), arr.next)
 
     if arr2.next == arr2.size:
-        raise IndexError("ArrayList is full")
-
+        arr2 = resize(arr2)
     arr2.array[arr2.next] = n
     arr2.next += 1
     return arr2
@@ -73,7 +72,12 @@ def resize(arr: ArrayList, factor: int = 2) -> ArrayList:
     - Return a new ArrayList with the new size, new array, and same next
     """
     # TODO: Write this function
-    pass
+    new_size = arr.size * factor
+    new_array = [None] * new_size
+    for i in range(arr.next):
+        new_array[i] = arr.array[i]
+
+    return ArrayList(new_size, new_array, arr.next)
 
 
 # -------------------------------------------------------------------

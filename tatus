@@ -1,0 +1,28 @@
+[1mdiff --git a/lab3_1.py b/lab3_1.py[m
+[1mindex e7968e1..7c1be90 100644[m
+[1m--- a/lab3_1.py[m
+[1m+++ b/lab3_1.py[m
+[36m@@ -19,8 +19,7 @@[m [mdef insert(arr: ArrayList, n: int) -> ArrayList:[m
+     arr2 = ArrayList(arr.size, arr.array.copy(), arr.next)[m
+ [m
+     if arr2.next == arr2.size:[m
+[31m-        raise IndexError("ArrayList is full")[m
+[31m-[m
+[32m+[m[32m        arr2 = resize(arr2)[m
+     arr2.array[arr2.next] = n[m
+     arr2.next += 1[m
+     return arr2[m
+[36m@@ -73,7 +72,12 @@[m [mdef resize(arr: ArrayList, factor: int = 2) -> ArrayList:[m
+     - Return a new ArrayList with the new size, new array, and same next[m
+     """[m
+     # TODO: Write this function[m
+[31m-    pass[m
+[32m+[m[32m    new_size = arr.size * factor[m
+[32m+[m[32m    new_array = [None] * new_size[m
+[32m+[m[32m    for i in range(arr.next):[m
+[32m+[m[32m        new_array[i] = arr.array[i][m
+[32m+[m
+[32m+[m[32m    return ArrayList(new_size, new_array, arr.next)[m
+ [m
+ [m
+ # -------------------------------------------------------------------[m
